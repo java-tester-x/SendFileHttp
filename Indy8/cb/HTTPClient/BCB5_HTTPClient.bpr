@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.05.03"/>
+    <PROJECT value="BCB5_HTTPClient.exe"/>
+    <OBJFILES value="BCB5_HTTPClient.obj Main.obj"/>
+    <RESFILES value="BCB5_HTTPClient.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) Main.dfm"/>
+    <LIBFILES value=""/>
+    <LIBRARIES value="Indy50.lib Vcl50.lib"/>
+    <SPARELIBS value="Vcl50.lib Indy50.lib"/>
+    <PACKAGES value="Vcl50.bpi Vclx50.bpi bcbsmp50.bpi Vcldb50.bpi vclado50.bpi ibsmp50.bpi 
+      VCLBDE50.bpi vcldbx50.bpi Dss50.bpi Vclmid50.bpi vclie50.bpi Inetdb50.bpi 
+      Inet50.bpi webmid50.bpi bcbie50.bpi dclocx50.bpi bcb2kaxserver50.bpi 
+      Indy50.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="tlink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT"/>
+    <MAINSOURCE value="BCB5_HTTPClient.cpp"/>
+    <INCLUDEPATH value="C:\c5\;C:\Demos\HTTPClient\;$(BCB)\include;$(BCB)\include\vcl;&quot;C:\Indy\C5\&quot;"/>
+    <LIBPATH value="C:\Demos\HTTPClient\;C:\C5\;$(BCB)\lib\obj;$(BCB)\lib;&quot;C:\Indy\C5\&quot;"/>
+    <WARNINGS value="-w-par"/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-I..\..\c5 -I..\..\Demos\HTTPClient -I$(BCB)\include -I$(BCB)\include\vcl 
+      -src_suffix cpp -D_DEBUG -boa"/>
+    <CFLAG1 value="-Od -H=$(BCB)\lib\vcl50.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
+      -tW -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+  </LINKER>
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1026
+CodePage=1251
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Excluded Packages]
+$(BCB)\Bin\DBWEBXPRT.BPL=Borland Web Wizard Package
+$(BCB)\Projects\Bpl\IcsBcb50.bpl=ICS components by F. Piette (BCB5)
+$(BCB)\Bin\mfcwizard.bpl=MFC Wizard
+$(BCB)\Bin\dcltqr50.bpl=TeeChart 5.0 for QuickReport Components Design Package
+$(BCB)\Bin\DCLNMF50.bpl=NetMasters Fastnet Tools
+$(BCB)\Bin\dcltee50.bpl=TeeChart 5.0 Components
+$(BCB)\Bin\dclqrt50.bpl=QuickReport Components
+$(BCB)\Bin\dclib50.bpl=InterBase Data Access Components
+
+[HistoryLists\hlIncludePath]
+Count=3
+Item0=C:\c5\;C:\Demos\HTTPClient\;$(BCB)\include;$(BCB)\include\vcl;C:\Indy\C5\
+Item1=C:\c5\;C:\Demos\HTTPClient\;$(BCB)\include;$(BCB)\include\vcl;C:\Indy\C5
+Item2=C:\c5\;C:\Demos\HTTPClient\;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=3
+Item0=C:\Demos\HTTPClient\;C:\C5\;$(BCB)\lib\obj;$(BCB)\lib;C:\Indy\C5\
+Item1=C:\Demos\HTTPClient\;C:\C5\;$(BCB)\lib\obj;$(BCB)\lib;C:\Indy\C5
+Item2=C:\Demos\HTTPClient\;C:\C5\;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

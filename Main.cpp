@@ -1,0 +1,83 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Main.h"
+
+#include <stdio.h>
+#include <dir.h>
+
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+        : TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button2Click(TObject *Sender)
+{
+    //TCHAR thBuffer[MAX_PATH];
+    //GetCurrentDirectory(sizeof(thBuffer),thBuffer);
+    //GetModuleFileName(NULL, thBuffer, sizeof(thBuffer));
+
+    char thePath[MAX_PATH];
+    getcwd(thePath, MAX_PATH);
+    String curDir =  thePath;
+    ShowMessage(curDir+"\\dowloands\\AdbeRdr1001_en_US.exe");
+
+    String URL_DOWNLOAD = "http://ardownload.adobe.com/pub/adobe/reader/win/10.x/10.0.1/en_US/AdbeRdr1001_en_US.exe";
+    String FILE_NAME    = curDir+"\\dowloands\\AdbeRdr1001_en_US.exe";
+    TFileStream* FILE_STREAM = new TFileStream(FILE_NAME, fmCreate | fmOpenWrite);
+    IdHttpForm->Get(URL_DOWNLOAD, FILE_STREAM);
+    delete FILE_STREAM;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::IdHttpFormWorkBegin(TObject *Sender,
+      TWorkMode AWorkMode, const int AWorkCountMax)
+{
+    ProgressBar1->Max = AWorkCountMax;      
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::IdHttpFormWork(TObject *Sender,
+      TWorkMode AWorkMode, const int AWorkCount)
+{
+    ProgressBar1->Position = AWorkCount;        
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::IdHttpFormWorkEnd(TObject *Sender,
+      TWorkMode AWorkMode)
+{
+    ShowMessage("Downloading process completed.");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+    // http://orcl.rfpgu.ru/upload_1981.php
+
+
+    TStringList *src= new TStringList();
+    TMemoryStream *resp= new TMemoryStream();
+
+
+    TStringList *headers = new TStringList;
+    headers->Add("Content-Disposition: form-data; name=\"upfile\"; filename=\"d:\\users\\vano\\SendFileHttp\\uploads\\test.jpg\"");
+    headers->Add("Content-Type: image/jpeg");
+    IdHttpForm->Request->ExtraHeaders->SetText(headers->GetText());
+
+    String jpgFile = "d:\\users\\vano\\SendFileHttp\\uploads\\test.jpg";
+    TFileStream *SF = new TFileStream(jpgFile,fmOpenRead);
+    IdHttpForm->WriteStream(SF,1,1);
+    SF->Free();
+
+    IdHttpForm->Post("http://orcl.rfpgu.ru/upload_1981.php", src, resp);
+    resp->SaveToFile("d:\\users\\vano\\SendFileHttp\\uploads\\resp.htm");
+    delete resp;
+}
+//---------------------------------------------------------------------------
+
